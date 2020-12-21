@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
-import Component1 from "./Component1";
 import MyHeader from "./Header";
+import Complex from "./Complex";
 import "./App.css";
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
         >
           Learn React
         </a>
-        <Component1></Component1>
+        <Complex />
       </header>
     </div>
   );
