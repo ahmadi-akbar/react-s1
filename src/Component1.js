@@ -1,7 +1,7 @@
 import React from "react";
 
 const Comp = () => (
-  <div className="App-Class">
+  <div className="Component1">
     {/* <p>Paragraph One</p> */}
     <p>Paragraph Two</p>
     <p>Paragraph Three</p>
