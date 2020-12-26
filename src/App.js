@@ -1,7 +1,7 @@
-import MyHeader from "./Header";
-import Complex from "./Complex";
-import "./App.css";
 import logo from "./assets/logo.svg";
+import MyHeader from "./components/Header";
+import Complex from "./components/Complex";
+import "./assets/App.css";
 
 function App() {
   return (
