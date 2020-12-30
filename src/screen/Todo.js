@@ -1,13 +1,21 @@
 import React from "react";
+import List from "../components/List";
 
 export default class TodoScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       text: "",
-      list: ["item one", "item two"],
+      list: [],
       visible: true,
     };
+  }
+
+  componentDidMount() {
+    let list = localStorage.getItem("list");
+    list = JSON.parse(list);
+    console.log("componentDidMount", list);
+    if (list) this.setState({ list });
   }
 
   handleOnchange = (event) => {
@@ -38,11 +46,19 @@ export default class TodoScreen extends React.Component {
     console.log("list after remove", list);
   };
 
+  saveList = () => {
+    const { list } = this.state;
+    localStorage.setItem("list", JSON.stringify(list));
+  };
+
   render() {
     return (
       <div className="container">
         <h1>My todo</h1>
-        <button onClick={this.handleToggle}>Toggle List</button>
+        <div>
+          <button onClick={this.handleToggle}>Toggle List</button>
+          <button onClick={this.saveList}>Save List</button>
+        </div>
         <div>
           <input
             placeholder="enter here"
@@ -51,15 +67,8 @@ export default class TodoScreen extends React.Component {
           />
           <button onClick={this.handleAdd}>Add</button>
         </div>
-        {this.state.visible && (
-          <div className="list">
-            {this.state.list.map((item, index) => (
-              <div className="list-item" key={index}>
-                {item}
-                <button onClick={() => this.handleRemove(index)}>x</button>
-              </div>
-            ))}
-          </div>
+        {this.state.visible && this.state.visible && (
+          <List items={this.state.list} handleRemove={this.handleRemove} />
         )}
       </div>
     );
