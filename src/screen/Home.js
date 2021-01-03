@@ -6,8 +6,9 @@ export default class TodoScreen extends React.Component {
   render() {
     return (
       <div className="container">
-        <ShoppingCard1  />
-        <ShoppingCard2  newProp time date/>
+        <h1>Home</h1>
+        <ShoppingCard1 />
+        <ShoppingCard2 newProp time date />
       </div>
     );
   }

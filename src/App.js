@@ -1,29 +1,37 @@
-import logo from "./assets/logo.svg";
-import MyHeader from "./components/Header";
-import Complex from "./components/Complex";
-import "./assets/App.css";
+import React from "react";
+import { HashRouter as Router, Route, Link } from "react-router-dom";
+import SC from "./screen/index";
 
-function App() {
-  return (
-    <div className="App">
-      <MyHeader />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React {"ali" + " mast" + (1 + 2)}
-        </a>
-        <Complex />
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+  render() {
+    return (
+      <Router>
+        <header>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <Link to="/timer">Timer</Link>
+            <Link to="/binding">Binding</Link>
+            <Link to="/todo">Todo</Link>
+            <Link to="/counter">Counter</Link>
+            <Link to="/home">Home</Link>
+          </div>
+        </header>
+
+        <Route path="/binding">
+          <SC.BindingScreen />
+        </Route>
+        <Route path="/todo">
+          <SC.Todo />
+        </Route>
+        <Route path="/counter">
+          <SC.Counter />
+        </Route>
+        <Route path="/timer">
+          <SC.Timer />
+        </Route>
+        <Route path="/home">
+          <SC.Home />
+        </Route>
+      </Router>
+    );
+  }
 }
-
-export default App;
