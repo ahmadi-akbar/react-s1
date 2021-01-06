@@ -13,9 +13,19 @@ export default class App extends React.Component {
             <Link to="/todo">Todo</Link>
             <Link to="/counter">Counter</Link>
             <Link to="/home">Home</Link>
+            <Link to="/styling">Styling</Link>
+            <Link to="/counter-fun">CounterFunction</Link>
+            <Link to="/practice">Practice</Link>
           </div>
         </header>
 
+        <Route path="/practice" exact>
+          <SC.Practice />
+        </Route>
+
+        <Route path="/counter-fun" exact>
+          <SC.CounterFunction />
+        </Route>
         <Route path="/binding">
           <SC.BindingScreen />
         </Route>
