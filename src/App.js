@@ -8,6 +8,7 @@ export default class App extends React.Component {
       <Router>
         <header>
           <div style={{ display: "flex", flexDirection: "column" }}>
+            <Link to="/api">API</Link>
             <Link to="/timer">Timer</Link>
             <Link to="/binding">Binding</Link>
             <Link to="/todo">Todo</Link>
@@ -18,6 +19,10 @@ export default class App extends React.Component {
             <Link to="/practice">Practice</Link>
           </div>
         </header>
+
+        <Route path="/api" exact>
+          <SC.Api />
+        </Route>
 
         <Route path="/practice" exact>
           <SC.Practice />
@@ -40,6 +45,9 @@ export default class App extends React.Component {
         </Route>
         <Route path="/home">
           <SC.Home />
+        </Route>
+        <Route path="/styling">
+          <SC.Styling />
         </Route>
       </Router>
     );
