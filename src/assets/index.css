@@ -49,3 +49,28 @@ code {
   align-items: center;
   justify-content: center;
 }
+
+.sidebar {
+  background-color: #7ed07e;
+  width: 150px;
+  position: absolute;
+  left: 0;
+  right: auto;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.appHeader {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 70px;
+  border-radius: 0 0 10px 10px;
+  background-color: rgb(255, 203, 139);
+  z-index: 5555;
+}
