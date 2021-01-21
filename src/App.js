@@ -1,30 +1,38 @@
 import React from "react";
 import { HashRouter as Router, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import routes from "./routes";
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      sidebar: true,
-    };
-  }
-  render() {
-    return (
-      <Router>
+export default function App() {
+  const [state, setState] = React.useState({ sidebar: true });
+
+  const SidebarGlobal = useSelector((globalState) => {
+    return globalState.sidebar;
+  });
+
+  const HeaderGlobal = useSelector((globalState) => {
+    return globalState.header;
+  });
+
+  console.log("render in App SidebarGlobal", SidebarGlobal);
+  console.log("render in App HeaderGlobal", HeaderGlobal);
+
+  return (
+    <Router>
+      {HeaderGlobal && (
         <Header
           routes={routes}
-          onMenu={() => this.setState({ sidebar: !this.state.sidebar })}
+          onMenu={() => setState({ sidebar: !this.state.sidebar })}
         />
-        {this.state.sidebar && (
-          <Sidebar onMenu={() => this.setState({ sidebar: false })} />
-        )}
-        {routes.map((i) => (
-          <Route exact path={i.path} component={i.component} />
-        ))}
-      </Router>
-    );
-  }
+      )}
+
+      {SidebarGlobal && <Sidebar onMenu={() => setState({ sidebar: false })} />}
+
+      {routes.map((i) => (
+        <Route exact key={i.path} path={i.path} component={i.component} />
+      ))}
+    </Router>
+  );
 }

@@ -7,6 +7,7 @@ import Styling from "./Styling";
 import Counter from "./Counter";
 import CounterFunction from "./CounterFunction";
 import Practice from "./Practice";
+import Redux from "./Redux";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -19,4 +20,5 @@ export default {
   Counter,
   CounterFunction,
   Practice,
+  Redux,
 };
