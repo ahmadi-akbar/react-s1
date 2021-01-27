@@ -10,6 +10,9 @@ export default function reducer(state = initialState, action) {
   const { payload, type } = action;
 
   switch (type) {
+    case "SaveData":
+      return Object.assign({}, state, payload);
+
     case "ToggleSidebar":
       state.sidebar = !state.sidebar;
       return state;
